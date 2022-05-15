@@ -1,17 +1,30 @@
 version: '3.8'
 
 services:
-  builder:
+  buildsys:
     image: builder
     build:
       context: .
       dockerfile: ./cmd/server/Dockerfile
     ports:
-      - 8080:8080
+      - '8080:8080'
     networks:
       - public
       - private
+  postgres:
+    image: postgres:14.2
+    environment:
+      POSTGRES_USER: ncx
+      POSTGRES_PASSWORD: ncx
+    ports:
+      - '5432:5432'
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ${PWD}/postgres:/docker-entrypoint-initdb.d:ro
 
 networks:
   public:
   private:
+
+volumes:
+  pg_data:
