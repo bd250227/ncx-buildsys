@@ -21,8 +21,8 @@ jobs:
         run: |
           docker build \
             -f ./cmd/server/Dockerfile \
-            -t "ghcr.io/bd250227/ncx-builder:${SHORT_SHA}" \
-            -t ghcr.io/bd250227/ncx-builder:latest \
+            -t "ghcr.io/bd250227/ncx-buildsys:${SHORT_SHA}" \
+            -t ghcr.io/bd250227/ncx-buildsys:latest \
             .
-          docker push "ghcr.io/bd250227/ncx-builder:${SHORT_SHA}"
-          docker push "ghcr.io/bd250227/ncx-builder:latest"
+          docker push "ghcr.io/bd250227/ncx-buildsys:${SHORT_SHA}"
+          docker push "ghcr.io/bd250227/ncx-buildsys:latest"
