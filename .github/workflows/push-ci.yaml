@@ -20,6 +20,7 @@ jobs:
       - name: Build and publish the PRODUCTION Docker image
         run: |
           docker build \
+            --dockerfile ./cmd/server/Dockerfile \
             -t "ghcr.io/bd250227/ncx-builder:${SHORT_SHA}" \
             -t ghcr.io/bd250227/ncx-builder:latest \
             .
