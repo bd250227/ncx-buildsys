@@ -10,4 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the PRODUCTION Docker image
-        run: docker-compose build .
+        run: docker-compose build
